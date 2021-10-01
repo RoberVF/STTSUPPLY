@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* {
+    --bg-color: #121212;    
+    --secondary-bg: #252525;
+    --light-purple: #7345ac;
+    --high-purple: #523498;
+    --light-white: #E8EAED;
+    --dark-white: rgba(232, 234, 237, .4);
+    --dark-light-purple: rgba(115, 69, 172, .1);
+    scroll-behavior: smooth;
+    font-family: "Poppins";
+}
+
+.bg-container{
+    height: 100vh;
+    margin-left: 78px;
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+}
+.header-product-container > img{
+    width: 100%;
+}
+.bg-container > h2{
+    width: 100%;
+    text-align: center;
+    align-self: center;
+    font-family: "Permanent Marker";
+    color: var(--light-purple);
+    margin-top: 2rem;
+}
+.col-sm{
+    display: flex !important;
+    justify-content: center !important;
+}
+.tarjeta{
+    margin: 3rem 2rem;
+    width: 18rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: white;
+}
+.tarjeta > a{
+    text-decoration: none;
+    width: 100%;
+}
+.tarjeta > a > img{
+    height: 18rem;
+    width: 100%;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    display: flex !important;
+    margin: 1rem auto;
+}
+.card-image-grande{
+    width: 90% !important;
+    margin: 1rem auto !important;
+}
+.tarjeta-text{
+    padding: .6rem 1rem;
+    position: relative;
+    height: 3rem;
+}
+
+.tarjeta-link{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: var(--light-purple);
+    left:0;
+    font-size: 1.2rem;
+    color: var(--light-white);
+    transition: .4s;
+    height: 3rem;
+    width:100%;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.tarjeta-link:hover{
+    opacity: .9; 
+    text-decoration: none;
+    color: var(--light-white);
+}

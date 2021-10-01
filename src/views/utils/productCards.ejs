@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="css/utils/productCards.css">
+
+<div class="container">
+    <div class="row card-container" style="margin-bottom: 3rem;">
+        <!-- background de las tarjetas blanco para ocultar el fondo de la imagen -->
+        <% teamProduct.forEach((item)=>{ %>
+            <div class="col-sm">
+                <div class="cardbox">
+                    <div class="card-image">
+                        <img src=<%= item.imagePath %>>
+                    </div>
+                    <div class="card-text">
+                        <div class="card-name">
+                            <h2>
+                                <%= item.name %>
+                            </h2>
+                        </div>
+                        <div class="card-team">
+                            <a href="/<%= item.team %>"><%= item.team %></a>
+                        </div>
+                        <div class="price">
+                            <h3>
+                                <%= item.price %>€
+                            </h3>
+                        </div>
+                    </div>
+                    <a class="card-link" href="/<%= item.team %>/<%= item._id %>">Comprar</a>
+                </div>  
+            </div>
+            <% }) %>
+    </div>
+</div>

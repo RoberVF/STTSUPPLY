@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>
+        Productos
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/pages/cards.css">
+</head>
+
+<body>
+    <%- include('../utils/navbar') %>
+        <div class="bg-container">
+            <%- include('../utils/leaguesNavbar') %>
+
+            <div class="title-container">
+                <% teamProduct.forEach((item)=>{ %>
+                    <h2><%= item.team %></h2>
+                <% }) %>
+            </div>
+            <!-- <img class="card-header-image" src="images/header-card-product.jpg" alt="header"> -->
+            <%- include('../utils/productCards') %>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STTSUPPLY</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        let screenWidth = screen.width
+        $(document).ready(function () {
+            if (window.matchMedia("(max-width:768px)").matches) {
+                $("#popUp").modal("show");
+                $("#bg-container").css("filter", "blur(5px)");
+            } else {
+
+            }
+        });
+    </script>
+
+    <!-- Utils CSSs -->
+</head>
+
+<body>
+    <%- include('utils/popUp') %>
+
+        <div class="bg-container" id="bg-container">
+            <%- include('utils/navbar') %>
+
+                <div class="main-container">
+
+                    <header>
+                        <img class="header-image" src="images/header.jpg" alt="header-image">
+                        <div class="header-text">
+                            <div>
+                                <h1><strong>stt</strong>supply</h1>
+                                <p>
+                                    ¿Buscas la equipación de tu equipo favorito pero no quieres gastar tanto dinero para
+                                    conseguirla? <br> ¡Estás en el lugar adecuado, explora la página y hazte con la
+                                    tuya!
+                                </p>
+                                <p>Esta página es el catálogo oficial de <a
+                                        href="https://www.instagram.com/sttsupply/?hl=es" target="_blank">sttsupply</a>
+                                </p>
+                                <a href="#topSellers">¡Explorar!</a>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Design tarjetas mas vendidos -->
+                    <section id="topSellers" class="topSellers" style="margin-top: 3rem">
+                        <div class="topSellersTitle">
+                            <h2>Más Vendidos</h2>
+                        </div>
+                        <%- include('utils/productCards') %>
+                    </section>
+
+                    <!-- Quienes somos -->
+
+
+                    <!-- Redes sociales, intentar incluirlas en 
+          la parte baja del navbar y iconos de 
+        boxicons -->
+
+                    <!-- <a href="/verDatos">Ver datos</a>
+          <a href="/incluir">Incluir Datos</a> -->
+                </div>
+        </div>
+
+
+        <script>
+            ScrollReveal({
+                delay: 300,
+                distance: '80px',
+            })
+            ScrollReveal().reveal('.header-text')
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

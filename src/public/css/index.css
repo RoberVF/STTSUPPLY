@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* {
+    --bg-color: #121212;    
+    --secondary-bg: #252525;
+    --light-purple: #7345ac;
+    --high-purple: #523498;
+    --light-white: #E8EAED;
+    --dark-white: rgba(232, 234, 237, .4);
+    --dark-light-purple: rgba(115, 69, 172, .1);
+    scroll-behavior: smooth;
+    font-family: "Poppins";
+}
+
+body {
+    background-color: var(--bg-color) !important;
+}
+
+.bg-container {
+    margin-left: 78px;
+    overflow-x: hidden;
+}
+
+header {
+    position: relative;
+}
+
+.header-image {
+    width: calc(100vw - 78px);
+}
+
+.header-text {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    width: 35vw;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    padding: 3rem;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background-color: rgba(232, 234, 237, .8);
+}
+
+.header-text>div>h1 {
+    font-size: 5rem;
+    color: var(--secondary-bg);
+    font-weight: 700;
+}
+
+.header-text>div>h1>strong {
+    font-size: 5.5rem;
+    text-transform: uppercase;
+    color: var(--light-purple);
+    font-weight: 900;
+}
+
+.header-text>div>p {
+    margin-top: 1.8rem;
+    font-size: 1.3rem;
+    letter-spacing: -.2px;
+    margin-bottom: 2.3rem;
+}
+.header-text>div>p>a{
+    text-decoration: none;
+    color:var(--light-purple);
+    transition: .5s;
+    font-weight: 500;
+}
+.header-text>div>p>a:hover{
+    text-decoration: none;
+    color: var(--bg-secondary);
+}
+.header-text>div>a {
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: .5rem 1rem;
+    color: var(--light-white);
+    background-color: var(--light-purple);
+}
+.topSellersTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+}
+.topSellersTitle > h2{
+    font-family: "Permanent Marker";
+    color: var(--light-purple);
+}
+
+
+@media (max-width: 1360px) {
+    .header-text {
+        background-color: rgba(232, 234, 237, .9);
+        top: 20%;
+        width: 80%;
+        left: 10%;
+    }
+}
+@media (max-width: 1000px) {
+    .header-text {
+        top: 10%;
+        width:90%;
+        left: 5%;        
+    }
+    .header-text>div>h1{
+        font-size: 4rem;
+    }
+    .header-text>div>p{
+        font-size: 1rem;
+        margin-top: 1.4rem;
+        margin-bottom: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-text {
+        display: none;
+    }
+}
