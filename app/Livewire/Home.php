@@ -3,37 +3,14 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
-use Livewire\Attributes\Url;
 use Livewire\Attributes\Computed;
 use App\Models\Product;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 
-class ProductCatalog extends Component
+class Home extends Component
 {
-    use WithPagination;
-
-    #[Url(history: true)]
-    public $search = '';
-
-    #[Url(history: true)]
-    public $selectedLeague = '';
-
-    #[Url(history: true)]
-    public $selectedCategory = '';
-
     public $cart = [];
-
-    private array $leagueMapping = [
-        'laliga'      => 'La Liga',
-        'seriea'      => 'Serie A',
-        'premier'     => 'Premier League',
-        'ligue1'      => 'Ligue 1',
-        'bundesliga'  => 'Bundesliga',
-        'retro'       => 'Retro',
-    ];
-
     public $customerName = '';
     public $customerAddress = '';
 
@@ -88,17 +65,8 @@ class ProductCatalog extends Component
         return redirect()->to("https://wa.me/" . config('services.whatsapp.phone') . "?text=" . urlencode($message));
     }
 
-    public function mount($league = null)
+    public function mount()
     {
-        if ($league) {
-            $slug = strtolower($league);
-            if (array_key_exists($slug, $this->leagueMapping)) {
-                $this->selectedLeague = $this->leagueMapping[$slug];
-            } else {
-                return redirect()->route('home');
-            }
-        }
-
         $this->cart = session()->get('cart', []);
     }
 
@@ -160,48 +128,17 @@ class ProductCatalog extends Component
         return null;
     }
 
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
-    public function updatingSelectedLeague()
-    {
-        $this->resetPage();
-    }
-    public function updatingSelectedCategory()
-    {
-        $this->resetPage();
-    }
-
     public function render()
     {
-        $query = Product::where('is_active', true);
+        // Traemos solo lo que hayas marcado como destacado en Filament
+        $featuredProducts = Product::where('is_active', true)
+            ->where('is_featured', true)
+            ->inRandomOrder()
+            ->take(16)
+            ->get();
 
-        if (!empty($this->search)) {
-            $query->where(function ($q) {
-                $q->where('title', 'ilike', '%' . $this->search . '%')
-                    ->orWhere('team', 'ilike', '%' . $this->search . '%');
-            });
-        }
-
-        if (!empty($this->selectedLeague)) {
-            $query->where('league', $this->selectedLeague);
-        }
-
-        if (!empty($this->selectedCategory)) {
-            $query->where('category', $this->selectedCategory);
-        }
-
-        if (!session()->has('catalog_seed')) {
-            session()->put('catalog_seed', rand(0, 100) / 100);
-        }
-
-        DB::statement('SELECT setseed(?)', [session()->get('catalog_seed')]);
-
-        return view('livewire.product-catalog', [
-            'products'   => $query->inRandomOrder()->paginate(12),
-            'leagues'    => Product::where('is_active', true)->distinct()->pluck('league'),
-            'categories' => Product::where('is_active', true)->distinct()->pluck('category'),
+        return view('livewire.home', [
+            'products' => $featuredProducts
         ])->layout('components.layouts.app');
     }
 }

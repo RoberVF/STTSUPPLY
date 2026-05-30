@@ -57,6 +57,9 @@ class ProductsTable
 
                 ToggleColumn::make('is_active')
                     ->label('Activo'),
+
+                ToggleColumn::make('is_featured')
+                    ->label('Destacado'),
             ])
             ->filters([
                 SelectFilter::make('league')

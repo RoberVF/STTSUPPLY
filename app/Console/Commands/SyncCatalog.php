@@ -14,7 +14,7 @@ class SyncCatalog extends Command
 
     private array $supportedLeagues = [
         'laliga'      => ['name' => 'La Liga', 'url' => 'https://www.kkgool1.com/La-Liga-c50070.html'],
-        'seriea'      => ['name' => 'Serie A', 'url' => 'https://www.kkgool1.com/Serie-A-c50073.html'],
+        'seriea'      => ['name' => 'Serie A', 'url' => 'https://www.kkgool1.com/Serie-A-c50068.html'],
         'premier'     => ['name' => 'Premier League', 'url' => 'https://www.kkgool1.com/Premier-League-c50069.html'],
         'ligue1'      => ['name' => 'Ligue 1', 'url' => 'https://www.kkgool1.com/Ligue-1-c50064.html'], // ◄ ¡REEMPLAZA CON ESTA URL!
         'bundesliga'  => ['name' => 'Bundesliga', 'url' => 'https://www.kkgool1.com/Bundesliga-c50075.html'],
