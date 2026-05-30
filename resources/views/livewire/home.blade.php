@@ -10,12 +10,7 @@
                         <div class="w-10 h-6 bg-[#6d5dfc] rounded-sm shadow-[0_0_15px_rgba(109,93,252,0.5)]"></div>
                         <span class="text-2xl font-black tracking-tighter text-white uppercase">STT<span class="text-neutral-400 font-light">SUPPLY</span></span>
                     </a>
-                    <nav class="hidden md:flex items-center gap-6 text-[11px] font-black tracking-widest uppercase text-neutral-400">
-                        <a href="/catalog/laliga" class="hover:text-white pb-1 transition-all">La Liga</a>
-                        <a href="/catalog/premier" class="hover:text-white pb-1 transition-all">Premier</a>
-                        <a href="/catalog/seriea" class="hover:text-white pb-1 transition-all">Serie A</a>
-                        <a href="/catalog/retro" class="text-[#6d5dfc] hover:text-violet-400 transition-all">⚡ Retro Selection</a>
-                    </nav>
+                    
                     <div @click="showCart = true" class="relative cursor-pointer group flex items-center gap-2 bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-lg hover:border-neutral-700 transition shrink-0">
                         <span class="text-xs font-semibold tracking-wider uppercase group-hover:text-violet-400 transition">Ver Cesta</span>
                         <span class="bg-[#6d5dfc] text-white text-[10px] w-5 h-5 rounded-md flex items-center justify-center font-black shadow-[0_0_10px_rgba(109,93,252,0.4)]">{{ $this->cartCount }}</span>
